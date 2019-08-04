@@ -1,0 +1,60 @@
+  <div>
+  <form [formGroup]="playerForm" (ngSubmit)="onSearch()">
+        <div class="form-group">
+            <label>Search Player</label>
+            <input type="text" class="form-control" formControlName="playerName" placeholder="Enter Name"/>
+        </div>
+        
+        <button class="btn btn-success" [disabled]="playerForm.invalid">Search</button>
+    </form>
+</div>
+<!-- div *ngIf="showTable" class="col-lg-8 mt-4">
+    <label>Player Information</label>
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let pl of playerInfo">
+            <th scope="row" >{{pl.pid}}</th>
+            <td >{{pl.fullName}}</td>
+            <td ><button class="btn btn-primary" (click)="onViewDetails(pl.pid)"><span class="glyphicon glyphicon-cog">View</span></button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+-->
+<div *ngIf="showTable">
+<div>
+  <h3>
+    Player Details
+  </h3>
+</div>
+<div>
+  <ngx-datatable
+  #mydatatable
+    class="material"
+    style="top: 52px"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [limit]="10"
+    [footerHeight]="50"
+    [rowHeight]="60"
+    [rows]="rows">
+  <ngx-datatable-column name="pid" [width]="80"></ngx-datatable-column>
+    <ngx-datatable-column name="fullName" [width]="300"></ngx-datatable-column>
+    <ngx-datatable-column name="Action" >
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <span>
+        <button  mat-button class="btn btn-primary" mdTooltip="Expand/Collapse Row"
+                                  (click)="onViewDetails(row.pid)">
+                               View
+        </button>
+        </span>
+    </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+</div>

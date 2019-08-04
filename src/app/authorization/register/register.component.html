@@ -1,0 +1,34 @@
+<p>Register Page!</p>
+
+<div>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name"/>
+        </div>
+        <div class="form-group">
+            <label>Email Id</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter Email"/>
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" formControlName="phoneNo" placeholder="Enter Phone Number"/>
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+           <!-- <input type="text" class="form-control" formControlName="country" placeholder="Enter Country"/> -->
+            <select class="form-control" name="countryName" formControlName="country">
+                <option>Select</option>
+                <option *ngFor="let country of CountryList">{{country.name}}</option>
+               </select> 
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <show-hide-password  btnStyle="primary">
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter Password"/>
+            </show-hide-password>
+        </div>
+
+        <button class="btn btn-success" [disabled]="registerForm.invalid">Register</button>
+    </form>
+    </div>

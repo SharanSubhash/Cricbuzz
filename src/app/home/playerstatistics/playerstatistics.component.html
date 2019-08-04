@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Player Information</h2>
+<mat-dialog-content class="mat-typography">
+<table *ngIf="playerInfo!=null" class="table table-striped">
+    <tr>
+        <td >Profile Photo</td>
+        <td colspan="2" ><img [src]="playerInfo.imageURL"></td>
+
+    </tr>
+    <tr>
+        <td >Name </td>
+        <td  >{{playerInfo.name}}</td>
+    </tr>
+    <tr>
+        <td>DOB </td>
+        <td > {{playerInfo.born}} </td>
+    </tr>
+    <tr>
+        <td >Batting Style </td>
+        <td  >{{playerInfo.battingStyle}}</td>
+    </tr>
+    <tr>
+        <td >Bowling Style</td>
+        <td >{{playerInfo.bowlingStyle}}</td>
+    </tr>
+
+</table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+<!--<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      Toggle
+    </button>
+  </p>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+      <div class="card-body">
+        You can collapse this card by clicking Toggle
+      </div>
+    </div>
+  </div> -->

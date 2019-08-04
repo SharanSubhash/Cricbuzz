@@ -1,0 +1,26 @@
+  <div style="margin:15px" class="form-group" >
+    <div class="input-group mb-3">
+      <input type="date" #d class="form-control">
+      <div class="input-group-append">
+      <button (click)="filterByDate(d.value)" class="btn btn-primary btn-sm">Filter</button>
+      </div>
+    </div>
+<ngx-datatable
+#mydatatable
+  class="material"
+  style="top: 52px"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [limit]="10"
+  [footerHeight]="50"
+  [rowHeight]="60"
+  [rows]="rows">
+<ngx-datatable-column name="Date" [width]="80">
+        <ng-template ngx-datatable-cell-template let-row="row">
+                {{row.date}}
+              </ng-template>
+</ngx-datatable-column>
+  <ngx-datatable-column name="Name" [width]="300"></ngx-datatable-column>
+</ngx-datatable>
+
+</div>
